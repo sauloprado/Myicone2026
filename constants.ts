@@ -69,34 +69,57 @@ export const FOOTBALL_FIFA: LinkItem[] = [
 ];
 
 // --- JORNAIS / COMUNICAÇÃO LISTS ---
-export const NEWSPAPERS_SP: LinkItem[] = [
-    { id: 'j_sp_1', name: 'Folha de S.Paulo', url: 'https://www.folha.uol.com.br', category: 'Comunicação' },
-    { id: 'j_sp_2', name: 'Estadão', url: 'https://www.estadao.com.br', category: 'Comunicação' },
-    { id: 'j_sp_3', name: 'Agora São Paulo', url: 'https://agora.folha.uol.com.br', category: 'Comunicação' },
-    { id: 'j_sp_4', name: 'Diário de S. Paulo', url: 'https://www.diariosp.com.br', category: 'Comunicação' },
-];
-export const NEWSPAPERS_RJ: LinkItem[] = [
-    { id: 'j_rj_1', name: 'O Globo', url: 'https://oglobo.globo.com', category: 'Comunicação' },
-    { id: 'j_rj_2', name: 'Extra', url: 'https://extra.globo.com', category: 'Comunicação' },
-    { id: 'j_rj_3', name: 'O Dia', url: 'https://odia.ig.com.br', category: 'Comunicação' },
-    { id: 'j_rj_4', name: 'Meia Hora', url: 'https://www.meiahora.com.br', category: 'Comunicação' },
-];
-export const NEWSPAPERS_MG: LinkItem[] = [
-    { id: 'j_mg_1', name: 'Estado de Minas', url: 'https://www.em.com.br', category: 'Comunicação' },
-    { id: 'j_mg_2', name: 'O Tempo', url: 'https://www.otempo.com.br', category: 'Comunicação' },
-    { id: 'j_mg_3', name: 'Hoje em Dia', url: 'https://www.hojeemdia.com.br', category: 'Comunicação' },
-];
-export const NEWSPAPERS_SUL: LinkItem[] = [
-    { id: 'j_sul_1', name: 'Zero Hora (GZH)', url: 'https://gzh.rs', category: 'Comunicação' },
-    { id: 'j_sul_2', name: 'Correio do Povo', url: 'https://www.correiodopovo.com.br', category: 'Comunicação' },
-    { id: 'j_sul_3', name: 'Gazeta do Povo', url: 'https://www.gazetadopovo.com.br', category: 'Comunicação' },
-    { id: 'j_sul_4', name: 'Diário Catarinense', url: 'https://www.nsctotal.com.br/dc', category: 'Comunicação' },
-];
-export const NEWSPAPERS_OUTROS: LinkItem[] = [
-    { id: 'j_out_1', name: 'Correio Braziliense', url: 'https://www.correiobraziliense.com.br', category: 'Comunicação' },
-    { id: 'j_out_2', name: 'Jornal do Commercio', url: 'https://jc.ne10.uol.com.br', category: 'Comunicação' },
-    { id: 'j_out_3', name: 'A Tarde', url: 'https://atarde.com.br', category: 'Comunicação' },
-    { id: 'j_out_4', name: 'O Povo', url: 'https://www.opovo.com.br', category: 'Comunicação' },
+export const NEWSPAPERS_BY_STATE: Record<string, LinkItem[]> = {
+  'Acre (AC)': [{ id: 'j_ac_1', name: 'A Gazeta do Acre', url: 'https://agazetadoacre.com', category: 'Comunicação' }],
+  'Alagoas (AL)': [{ id: 'j_al_1', name: 'Gazeta de Alagoas', url: 'https://www.gazetadealagoas.com.br', category: 'Comunicação' }],
+  'Amapá (AP)': [{ id: 'j_ap_1', name: 'Diário do Amapá', url: 'https://www.diariodoamapa.com.br', category: 'Comunicação' }],
+  'Amazonas (AM)': [{ id: 'j_am_1', name: 'A Crítica', url: 'https://www.acritica.com', category: 'Comunicação' }],
+  'Bahia (BA)': [{ id: 'j_ba_1', name: 'A Tarde', url: 'https://atarde.com.br', category: 'Comunicação' }],
+  'Ceará (CE)': [{ id: 'j_ce_1', name: 'O Povo', url: 'https://www.opovo.com.br', category: 'Comunicação' }],
+  'Distrito Federal (DF)': [{ id: 'j_df_1', name: 'Correio Braziliense', url: 'https://www.correiobraziliense.com.br', category: 'Comunicação' }],
+  'Espírito Santo (ES)': [{ id: 'j_es_1', name: 'A Gazeta', url: 'https://www.agazeta.com.br', category: 'Comunicação' }],
+  'Goiás (GO)': [{ id: 'j_go_1', name: 'O Popular', url: 'https://opopular.com.br', category: 'Comunicação' }],
+  'Maranhão (MA)': [{ id: 'j_ma_1', name: 'O Imparcial', url: 'https://oimparcial.com.br', category: 'Comunicação' }],
+  'Mato Grosso (MT)': [{ id: 'j_mt_1', name: 'Diário de Cuiabá', url: 'https://www.diariodecuiaba.com.br', category: 'Comunicação' }],
+  'Mato Grosso do Sul (MS)': [{ id: 'j_ms_1', name: 'Correio do Estado', url: 'https://correiodoestado.com.br', category: 'Comunicação' }],
+  'Minas Gerais (MG)': [{ id: 'j_mg_1', name: 'Estado de Minas', url: 'https://www.em.com.br', category: 'Comunicação' }],
+  'Pará (PA)': [{ id: 'j_pa_1', name: 'O Liberal', url: 'https://www.oliberal.com', category: 'Comunicação' }],
+  'Paraíba (PB)': [{ id: 'j_pb_1', name: 'Jornal da Paraíba', url: 'https://jornaldaparaiba.com.br', category: 'Comunicação' }],
+  'Paraná (PR)': [{ id: 'j_pr_1', name: 'Gazeta do Povo', url: 'https://www.gazetadopovo.com.br', category: 'Comunicação' }],
+  'Pernambuco (PE)': [{ id: 'j_pe_1', name: 'Jornal do Commercio', url: 'https://jc.ne10.uol.com.br', category: 'Comunicação' }],
+  'Piauí (PI)': [{ id: 'j_pi_1', name: 'Cidade Verde', url: 'https://cidadeverde.com', category: 'Comunicação' }],
+  'Rio de Janeiro (RJ)': [{ id: 'j_rj_1', name: 'O Globo', url: 'https://oglobo.globo.com', category: 'Comunicação' }],
+  'Rio Grande do Norte (RN)': [{ id: 'j_rn_1', name: 'Tribuna do Norte', url: 'https://tribunadonorte.com.br', category: 'Comunicação' }],
+  'Rio Grande do Sul (RS)': [{ id: 'j_rs_1', name: 'Zero Hora (GZH)', url: 'https://gzh.rs', category: 'Comunicação' }],
+  'Rondônia (RO)': [{ id: 'j_ro_1', name: 'Diário da Amazônia', url: 'https://www.diariodaamazonia.com.br', category: 'Comunicação' }],
+  'Roraima (RR)': [{ id: 'j_rr_1', name: 'Folha de Boa Vista', url: 'https://folhabv.com.br', category: 'Comunicação' }],
+  'Santa Catarina (SC)': [{ id: 'j_sc_1', name: 'NSC Total', url: 'https://www.nsctotal.com.br', category: 'Comunicação' }],
+  'São Paulo (SP)': [{ id: 'j_sp_1', name: 'Folha de S.Paulo', url: 'https://www.folha.uol.com.br', category: 'Comunicação' }],
+  'Sergipe (SE)': [{ id: 'j_se_1', name: 'Jornal da Cidade', url: 'https://jornaldacidade.net', category: 'Comunicação' }],
+  'Tocantins (TO)': [{ id: 'j_to_1', name: 'Jornal do Tocantins', url: 'https://www.jornaldotocantins.com.br', category: 'Comunicação' }],
+};
+
+export const NEWSPAPERS_WORLD: LinkItem[] = [
+  { id: 'j_w_1', name: 'The New York Times', url: 'https://www.nytimes.com', category: 'Comunicação' },
+  { id: 'j_w_2', name: 'The Washington Post', url: 'https://www.washingtonpost.com', category: 'Comunicação' },
+  { id: 'j_w_3', name: 'The Wall Street Journal', url: 'https://www.wsj.com', category: 'Comunicação' },
+  { id: 'j_w_4', name: 'The Guardian', url: 'https://www.theguardian.com', category: 'Comunicação' },
+  { id: 'j_w_5', name: 'BBC News', url: 'https://www.bbc.com/news', category: 'Comunicação' },
+  { id: 'j_w_6', name: 'Financial Times', url: 'https://www.ft.com', category: 'Comunicação' },
+  { id: 'j_w_7', name: 'Le Monde', url: 'https://www.lemonde.fr', category: 'Comunicação' },
+  { id: 'j_w_8', name: 'Le Figaro', url: 'https://www.lefigaro.fr', category: 'Comunicação' },
+  { id: 'j_w_9', name: 'El País', url: 'https://elpais.com', category: 'Comunicação' },
+  { id: 'j_w_10', name: 'El Mundo', url: 'https://www.elmundo.es', category: 'Comunicação' },
+  { id: 'j_w_11', name: 'Corriere della Sera', url: 'https://www.corriere.it', category: 'Comunicação' },
+  { id: 'j_w_12', name: 'Der Spiegel', url: 'https://www.spiegel.de', category: 'Comunicação' },
+  { id: 'j_w_13', name: 'Público (Portugal)', url: 'https://www.publico.pt', category: 'Comunicação' },
+  { id: 'j_w_14', name: 'Clarín', url: 'https://www.clarin.com', category: 'Comunicação' },
+  { id: 'j_w_15', name: 'La Nación', url: 'https://www.lanacion.com.ar', category: 'Comunicação' },
+  { id: 'j_w_16', name: 'El Tiempo', url: 'https://www.eltiempo.com', category: 'Comunicação' },
+  { id: 'j_w_17', name: 'Asahi Shimbun', url: 'https://www.asahi.com', category: 'Comunicação' },
+  { id: 'j_w_18', name: 'The Hindu', url: 'https://www.thehindu.com', category: 'Comunicação' },
+  { id: 'j_w_19', name: 'South China Morning Post', url: 'https://www.scmp.com', category: 'Comunicação' },
+  { id: 'j_w_20', name: 'Al Jazeera', url: 'https://www.aljazeera.com', category: 'Comunicação' },
 ];
 
 export const GAME_ITEMS: LinkItem[] = [

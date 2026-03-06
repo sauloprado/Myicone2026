@@ -13,11 +13,8 @@ import {
   FOOTBALL_BRASIL, 
   FOOTBALL_EUROPE, 
   FOOTBALL_FIFA,
-  NEWSPAPERS_SP,
-  NEWSPAPERS_RJ,
-  NEWSPAPERS_MG,
-  NEWSPAPERS_SUL,
-  NEWSPAPERS_OUTROS
+  NEWSPAPERS_BY_STATE,
+  NEWSPAPERS_WORLD
 } from './constants';
 import IconCard from './components/IconCard';
 import ResponsibilityFooter from './components/ResponsibilityFooter';
@@ -233,7 +230,8 @@ function App() {
   }, [searchQuery, allFootballItems]);
 
   // Combined newspaper items for search
-  const allNewspaperItems = useMemo(() => [...NEWSPAPERS_SP, ...NEWSPAPERS_RJ, ...NEWSPAPERS_MG, ...NEWSPAPERS_SUL, ...NEWSPAPERS_OUTROS], []);
+  const allStateNewspapers = useMemo(() => Object.values(NEWSPAPERS_BY_STATE).flat(), []);
+  const allNewspaperItems = useMemo(() => [...allStateNewspapers, ...NEWSPAPERS_WORLD], [allStateNewspapers]);
   const filteredNewspaperItems = useMemo(() => {
     return allNewspaperItems.filter(item =>
       item.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -733,55 +731,24 @@ function App() {
             ) : (
               // Sectioned view for newspapers
               <div className="space-y-12">
-                
-                {/* São Paulo */}
-                <div className="animate-fade-in-up" style={{ animationDelay: '0ms' }}>
-                  <div className="flex items-center gap-3 mb-6">
+                {Object.entries(NEWSPAPERS_BY_STATE).map(([state, items], index) => (
+                  <div key={state} className="animate-fade-in-up" style={{ animationDelay: `${index * 45}ms` }}>
+                    <div className="flex items-center gap-3 mb-6">
                       <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
-                      <h2 className="text-xl font-bold text-slate-700 dark:text-slate-300 uppercase tracking-widest">São Paulo</h2>
+                      <h2 className="text-xl font-bold text-slate-700 dark:text-slate-300 uppercase tracking-widest">{state}</h2>
                       <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                    </div>
+                    <RenderGrid items={items} />
                   </div>
-                  <RenderGrid items={NEWSPAPERS_SP} />
-                </div>
+                ))}
 
-                {/* Rio de Janeiro */}
-                <div className="animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+                <div className="animate-fade-in-up" style={{ animationDelay: '1300ms' }}>
                   <div className="flex items-center gap-3 mb-6">
-                      <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
-                      <h2 className="text-xl font-bold text-slate-700 dark:text-slate-300 uppercase tracking-widest">Rio de Janeiro</h2>
-                      <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                    <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                    <h2 className="text-xl font-bold text-slate-700 dark:text-slate-300 uppercase tracking-widest">Mundo</h2>
+                    <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
                   </div>
-                  <RenderGrid items={NEWSPAPERS_RJ} />
-                </div>
-
-                {/* Minas Gerais */}
-                <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                  <div className="flex items-center gap-3 mb-6">
-                      <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
-                      <h2 className="text-xl font-bold text-slate-700 dark:text-slate-300 uppercase tracking-widest">Minas Gerais</h2>
-                      <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
-                  </div>
-                  <RenderGrid items={NEWSPAPERS_MG} />
-                </div>
-
-                {/* Sul */}
-                <div className="animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-                  <div className="flex items-center gap-3 mb-6">
-                      <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
-                      <h2 className="text-xl font-bold text-slate-700 dark:text-slate-300 uppercase tracking-widest">Região Sul</h2>
-                      <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
-                  </div>
-                  <RenderGrid items={NEWSPAPERS_SUL} />
-                </div>
-
-                {/* Outros Estados */}
-                <div className="animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-                  <div className="flex items-center gap-3 mb-6">
-                      <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
-                      <h2 className="text-xl font-bold text-slate-700 dark:text-slate-300 uppercase tracking-widest">Outros Estados</h2>
-                      <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
-                  </div>
-                  <RenderGrid items={NEWSPAPERS_OUTROS} />
+                  <RenderGrid items={NEWSPAPERS_WORLD} />
                 </div>
 
               </div>
