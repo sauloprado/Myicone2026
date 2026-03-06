@@ -1,6 +1,6 @@
 // Criado - Saulo Prado Versão 1.0 Junho de 2016 Versão 2.0 Março de 2026
 import React, { useState, useMemo, useEffect } from 'react';
-import { Search, Globe, X, Menu, Grid, Moon, Sun, Gamepad2, BarChart3, Info, Home, Trophy, Newspaper, Brain, Briefcase, Code } from 'lucide-react';
+import { Search, Globe, X, Menu, Grid, Moon, Sun, Gamepad2, BarChart3, Info, Home, Trophy, Newspaper, Brain, Briefcase, Code, Laptop, Smartphone, UserRound } from 'lucide-react';
 import { 
   HOME_ITEMS, 
   GAME_ITEMS, 
@@ -24,6 +24,34 @@ import ResponsibilityFooter from './components/ResponsibilityFooter';
 
 type Page = 'home' | 'ai' | 'productivity' | 'dev' | 'games' | 'indicators' | 'football' | 'communication' | 'about';
 
+const FamilyBannerVisual = () => (
+  <div className="hidden lg:block relative w-[360px] h-[132px]">
+    <div className="absolute inset-0 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-sm"></div>
+
+    <div className="absolute left-3 top-9 w-12 h-12 rounded-full bg-white/20 border border-white/30 flex items-center justify-center">
+      <UserRound size={22} className="text-white" />
+    </div>
+    <div className="absolute right-3 top-9 w-12 h-12 rounded-full bg-white/20 border border-white/30 flex items-center justify-center">
+      <UserRound size={22} className="text-white" />
+    </div>
+    <div className="absolute left-[154px] -top-2 w-12 h-12 rounded-full bg-white/20 border border-white/30 flex items-center justify-center">
+      <UserRound size={22} className="text-white" />
+    </div>
+
+    <div className="absolute left-[98px] top-5 px-4 py-3 rounded-xl bg-white/15 border border-white/30 shadow-lg min-w-[164px]">
+      <div className="flex items-center gap-2 mb-1">
+        <Laptop size={16} className="text-white" />
+        <span className="text-sm font-bold text-white">Myicone</span>
+      </div>
+      <p className="text-[0.68rem] text-white/90 leading-tight">Atalhos para toda a família.</p>
+    </div>
+
+    <div className="absolute left-[138px] bottom-2 px-2 py-1 rounded-lg bg-white/20 border border-white/30">
+      <Smartphone size={14} className="text-white" />
+    </div>
+  </div>
+);
+
 // --- Page Banner Component (Desktop/Tablet Only) ---
 const PageBanner = ({ page }: { page: Page }) => {
   if (page === 'about') return null;
@@ -33,7 +61,8 @@ const PageBanner = ({ page }: { page: Page }) => {
       title: 'Mundo dos Ícones',
       subtitle: 'Seu portal de atalhos para a internet brasileira',
       gradient: 'from-brand-dark to-brand-light',
-      icon: <Globe size={48} className="text-white/80" />
+      icon: <Globe size={48} className="text-white/80" />,
+      visual: <FamilyBannerVisual />
     },
     ai: {
       title: 'Inteligência Artificial',
@@ -88,9 +117,13 @@ const PageBanner = ({ page }: { page: Page }) => {
         <h1 className="text-3xl font-black tracking-tight mb-2">{config.title}</h1>
         <p className="text-white/90 font-medium">{config.subtitle}</p>
       </div>
-      <div className="bg-white/10 p-4 rounded-full backdrop-blur-sm">
-        {config.icon}
-      </div>
+      {config.visual ? (
+        config.visual
+      ) : (
+        <div className="bg-white/10 p-4 rounded-full backdrop-blur-sm">
+          {config.icon}
+        </div>
+      )}
     </div>
   );
 };
