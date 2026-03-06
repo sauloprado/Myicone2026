@@ -1,3 +1,4 @@
+<!-- Criado - Saulo Prado Versão 1.0 Junho de 2016 Versão 2.0 Março de 2026 -->
 # Myícone Moderno
 
 Releitura moderna e responsiva do clássico portal "Myícone", com foco em atalhos úteis da internet brasileira.
@@ -61,3 +62,4 @@ corepack pnpm preview
 
 - Vercel/Netlify: publicar o diretório `dist/`
 - Hospedagem tradicional (cPanel etc.): enviar o conteúdo de `dist/` para a pasta pública do site
+

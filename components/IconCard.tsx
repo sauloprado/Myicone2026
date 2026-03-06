@@ -1,3 +1,4 @@
+// Criado - Saulo Prado Versão 1.0 Junho de 2016 Versão 2.0 Março de 2026
 import React, { useState } from 'react';
 import { ExternalLink, Globe } from 'lucide-react';
 import { LinkItem } from '../types';

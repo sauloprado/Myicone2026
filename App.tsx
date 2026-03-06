@@ -1,3 +1,4 @@
+// Criado - Saulo Prado Versão 1.0 Junho de 2016 Versão 2.0 Março de 2026
 import React, { useState, useMemo, useEffect } from 'react';
 import { Search, Globe, X, Menu, Grid, Moon, Sun, Gamepad2, BarChart3, Info, Home, Filter, Trophy, Newspaper } from 'lucide-react';
 import { 

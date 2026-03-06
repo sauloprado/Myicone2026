@@ -1,3 +1,4 @@
+// Criado - Saulo Prado Versão 1.0 Junho de 2016 Versão 2.0 Março de 2026
 import React from 'react';
 import { Heart, Activity, Baby, AlertTriangle, Phone } from 'lucide-react';
 import { SOCIAL_RESPONSIBILITY } from '../constants';

@@ -1,3 +1,4 @@
+// Criado - Saulo Prado Versão 1.0 Junho de 2016 Versão 2.0 Março de 2026
 import { LinkItem, SocialResponsibilityItem } from './types';
 
 export const SOCIAL_RESPONSIBILITY: SocialResponsibilityItem[] = [

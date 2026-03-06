@@ -1,3 +1,4 @@
+// Criado - Saulo Prado Versão 1.0 Junho de 2016 Versão 2.0 Março de 2026
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
@@ -21,3 +22,4 @@ export default defineConfig(({ mode }) => {
       }
     };
 });
+
