@@ -167,6 +167,22 @@ function App() {
       item.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
   }, [searchQuery, allDevItems]);
+  const devPythonDataItems = useMemo(
+    () => DEV_CORE_ITEMS.filter(item => ['dev_1', 'dev_2', 'dev_3', 'dev_4', 'dev_5', 'dev_6'].includes(item.id)),
+    []
+  );
+  const devWebItems = useMemo(
+    () => DEV_CORE_ITEMS.filter(item => ['dev_7', 'dev_8', 'dev_9', 'dev_10', 'dev_11', 'dev_12', 'dev_13'].includes(item.id)),
+    []
+  );
+  const devDatabaseItems = useMemo(
+    () => DEV_CORE_ITEMS.filter(item => ['dev_14', 'dev_15', 'dev_16', 'dev_17'].includes(item.id)),
+    []
+  );
+  const devBackendItems = useMemo(
+    () => DEV_CORE_ITEMS.filter(item => ['dev_18', 'dev_19', 'dev_20'].includes(item.id)),
+    []
+  );
 
   // Combined football items for search
   const allFootballItems = useMemo(() => [...FOOTBALL_BRASIL, ...FOOTBALL_EUROPE, ...FOOTBALL_FIFA], []);
@@ -461,16 +477,43 @@ function App() {
                 <div className="animate-fade-in-up" style={{ animationDelay: '0ms' }}>
                   <div className="flex items-center gap-3 mb-6">
                     <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
-                    <h2 className="text-xl font-bold text-cyan-700 dark:text-cyan-300 uppercase tracking-widest">Linguagens e Bibliotecas (20)</h2>
+                    <h2 className="text-xl font-bold text-cyan-700 dark:text-cyan-300 uppercase tracking-widest">Python Data</h2>
                     <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
                   </div>
-                  <RenderGrid items={DEV_CORE_ITEMS} />
+                  <RenderGrid items={devPythonDataItems} />
                 </div>
 
                 <div className="animate-fade-in-up" style={{ animationDelay: '100ms' }}>
                   <div className="flex items-center gap-3 mb-6">
                     <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
-                    <h2 className="text-xl font-bold text-blue-700 dark:text-blue-300 uppercase tracking-widest">README e Docs</h2>
+                    <h2 className="text-xl font-bold text-blue-700 dark:text-blue-300 uppercase tracking-widest">Web Frontend</h2>
+                    <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                  </div>
+                  <RenderGrid items={devWebItems} />
+                </div>
+
+                <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                    <h2 className="text-xl font-bold text-emerald-700 dark:text-emerald-300 uppercase tracking-widest">Banco de Dados</h2>
+                    <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                  </div>
+                  <RenderGrid items={devDatabaseItems} />
+                </div>
+
+                <div className="animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                    <h2 className="text-xl font-bold text-violet-700 dark:text-violet-300 uppercase tracking-widest">Backend e Plataforma</h2>
+                    <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                  </div>
+                  <RenderGrid items={devBackendItems} />
+                </div>
+
+                <div className="animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                    <h2 className="text-xl font-bold text-sky-700 dark:text-sky-300 uppercase tracking-widest">README e Docs</h2>
                     <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
                   </div>
                   <RenderGrid items={DEV_README_ITEMS} />
