@@ -1,10 +1,15 @@
 // Criado - Saulo Prado Versão 1.0 Junho de 2016 Versão 2.0 Março de 2026
 import React, { useState, useMemo, useEffect } from 'react';
-import { Search, Globe, X, Menu, Grid, Moon, Sun, Gamepad2, BarChart3, Info, Home, Filter, Trophy, Newspaper } from 'lucide-react';
+import { Search, Globe, X, Menu, Grid, Moon, Sun, Gamepad2, BarChart3, Info, Home, Trophy, Newspaper, Brain, Briefcase, Code } from 'lucide-react';
 import { 
   HOME_ITEMS, 
   GAME_ITEMS, 
   INDICATOR_ITEMS, 
+  AI_LLM_ITEMS,
+  AI_CHINA_ITEMS,
+  PRODUCTIVITY_ITEMS,
+  DEV_CORE_ITEMS,
+  DEV_README_ITEMS,
   FOOTBALL_BRASIL, 
   FOOTBALL_EUROPE, 
   FOOTBALL_FIFA,
@@ -17,7 +22,7 @@ import {
 import IconCard from './components/IconCard';
 import ResponsibilityFooter from './components/ResponsibilityFooter';
 
-type Page = 'home' | 'games' | 'indicators' | 'football' | 'communication' | 'about';
+type Page = 'home' | 'ai' | 'productivity' | 'dev' | 'games' | 'indicators' | 'football' | 'communication' | 'about';
 
 // --- Page Banner Component (Desktop/Tablet Only) ---
 const PageBanner = ({ page }: { page: Page }) => {
@@ -29,6 +34,24 @@ const PageBanner = ({ page }: { page: Page }) => {
       subtitle: 'Seu portal de atalhos para a internet brasileira',
       gradient: 'from-brand-dark to-brand-light',
       icon: <Globe size={48} className="text-white/80" />
+    },
+    ai: {
+      title: 'Inteligência Artificial',
+      subtitle: 'LLMs globais, IAs chinesas e novidades de 2026',
+      gradient: 'from-fuchsia-700 to-pink-500',
+      icon: <Brain size={48} className="text-white/80" />
+    },
+    productivity: {
+      title: 'Produtividade',
+      subtitle: 'Ferramentas para organizar trabalho, criação e rotina',
+      gradient: 'from-amber-700 to-orange-500',
+      icon: <Briefcase size={48} className="text-white/80" />
+    },
+    dev: {
+      title: 'Hub Dev',
+      subtitle: 'Python, SQL, JavaScript, React e utilitários para README',
+      gradient: 'from-cyan-800 to-blue-600',
+      icon: <Code size={48} className="text-white/80" />
     },
     games: {
       title: 'Arena Gamer',
@@ -125,6 +148,26 @@ function App() {
     );
   }, [searchQuery]);
 
+  const allAiItems = useMemo(() => [...AI_LLM_ITEMS, ...AI_CHINA_ITEMS], []);
+  const filteredAiItems = useMemo(() => {
+    return allAiItems.filter(item =>
+      item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [searchQuery, allAiItems]);
+
+  const filteredProductivityItems = useMemo(() => {
+    return PRODUCTIVITY_ITEMS.filter(item =>
+      item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [searchQuery]);
+
+  const allDevItems = useMemo(() => [...DEV_CORE_ITEMS, ...DEV_README_ITEMS], []);
+  const filteredDevItems = useMemo(() => {
+    return allDevItems.filter(item =>
+      item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [searchQuery, allDevItems]);
+
   // Combined football items for search
   const allFootballItems = useMemo(() => [...FOOTBALL_BRASIL, ...FOOTBALL_EUROPE, ...FOOTBALL_FIFA], []);
   const filteredFootballItems = useMemo(() => {
@@ -196,6 +239,9 @@ function App() {
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-2">
               <NavLink page="home" label="Início" icon={Home} />
+              <NavLink page="ai" label="IA" icon={Brain} />
+              <NavLink page="productivity" label="Produtividade" icon={Briefcase} />
+              <NavLink page="dev" label="Dev" icon={Code} />
               <NavLink page="games" label="Jogos" icon={Gamepad2} />
               <NavLink page="indicators" label="Indicadores" icon={BarChart3} />
               <NavLink page="football" label="Futebol" icon={Trophy} />
@@ -232,6 +278,9 @@ function App() {
         {isMenuOpen && (
           <div className="md:hidden border-t border-slate-200 dark:border-dark-border bg-white dark:bg-dark-bg p-4 flex flex-col gap-2 shadow-lg">
              <NavLink page="home" label="Página Inicial" icon={Home} />
+             <NavLink page="ai" label="IA" icon={Brain} />
+             <NavLink page="productivity" label="Produtividade" icon={Briefcase} />
+             <NavLink page="dev" label="Dev" icon={Code} />
              <NavLink page="games" label="Jogos" icon={Gamepad2} />
              <NavLink page="indicators" label="Indicadores" icon={BarChart3} />
              <NavLink page="football" label="Futebol" icon={Trophy} />
@@ -253,6 +302,9 @@ function App() {
              <div className="md:hidden text-center mb-6 animate-fade-in-up">
               <h1 className="text-3xl font-black text-slate-800 dark:text-slate-100 mb-2 tracking-tight">
                 {currentPage === 'home' && <>Bem vindo ao <span className="text-brand">Myícone</span></>}
+                {currentPage === 'ai' && <>Painel de <span className="text-brand">IA</span></>}
+                {currentPage === 'productivity' && <>Modo <span className="text-brand">Produtividade</span></>}
+                {currentPage === 'dev' && <>Atalhos para <span className="text-brand">Devs</span></>}
                 {currentPage === 'games' && <>Arena de <span className="text-brand">Jogos</span></>}
                 {currentPage === 'indicators' && <>Painel de <span className="text-brand">Indicadores</span></>}
                 {currentPage === 'football' && <>Mundo do <span className="text-brand">Futebol</span></>}
@@ -346,6 +398,83 @@ function App() {
                     </div>
                   );
                 })}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* --- AI PAGE VIEW --- */}
+        {currentPage === 'ai' && (
+          <div className="w-full">
+            {searchQuery ? (
+              filteredAiItems.length > 0 ? (
+                <RenderGrid items={filteredAiItems} />
+              ) : (
+                <div className="text-center text-slate-400 py-10">IA não encontrada.</div>
+              )
+            ) : (
+              <div className="space-y-12">
+                <div className="animate-fade-in-up" style={{ animationDelay: '0ms' }}>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                    <h2 className="text-xl font-bold text-fuchsia-700 dark:text-fuchsia-300 uppercase tracking-widest">LLMs Globais</h2>
+                    <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                  </div>
+                  <RenderGrid items={AI_LLM_ITEMS} />
+                </div>
+
+                <div className="animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                    <h2 className="text-xl font-bold text-red-700 dark:text-red-300 uppercase tracking-widest">IAs Chinesas</h2>
+                    <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                  </div>
+                  <RenderGrid items={AI_CHINA_ITEMS} />
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* --- PRODUCTIVITY PAGE VIEW --- */}
+        {currentPage === 'productivity' && (
+          <div className="w-full">
+            {filteredProductivityItems.length > 0 ? (
+              <RenderGrid items={filteredProductivityItems} />
+            ) : (
+              <div className="text-center text-slate-400 py-10">Ferramenta não encontrada.</div>
+            )}
+          </div>
+        )}
+
+        {/* --- DEV PAGE VIEW --- */}
+        {currentPage === 'dev' && (
+          <div className="w-full">
+            {searchQuery ? (
+              filteredDevItems.length > 0 ? (
+                <RenderGrid items={filteredDevItems} />
+              ) : (
+                <div className="text-center text-slate-400 py-10">Site dev não encontrado.</div>
+              )
+            ) : (
+              <div className="space-y-12">
+                <div className="animate-fade-in-up" style={{ animationDelay: '0ms' }}>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                    <h2 className="text-xl font-bold text-cyan-700 dark:text-cyan-300 uppercase tracking-widest">Stack Essencial Dev</h2>
+                    <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                  </div>
+                  <RenderGrid items={DEV_CORE_ITEMS} />
+                </div>
+
+                <div className="animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                    <h2 className="text-xl font-bold text-blue-700 dark:text-blue-300 uppercase tracking-widest">README e Docs</h2>
+                    <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                  </div>
+                  <RenderGrid items={DEV_README_ITEMS} />
+                </div>
               </div>
             )}
           </div>

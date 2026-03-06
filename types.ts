@@ -1,6 +1,9 @@
 // Criado - Saulo Prado Versão 1.0 Junho de 2016 Versão 2.0 Março de 2026
 export type Category = 
   | 'IA & Produtividade' 
+  | 'IA'
+  | 'Produtividade'
+  | 'Dev'
   | 'Redes Sociais' 
   | 'Shopping & Varejo' 
   | 'Streaming & Vídeo' 

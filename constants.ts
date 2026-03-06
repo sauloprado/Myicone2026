@@ -144,18 +144,89 @@ export const INDICATOR_ITEMS: LinkItem[] = [
   { id: 'i17', name: 'B3 (Bolsa)', url: 'https://www.b3.com.br', category: 'Indicadores' },
 ];
 
+export const AI_LLM_ITEMS: LinkItem[] = [
+  { id: 'ai_1', name: 'ChatGPT', url: 'https://chat.openai.com', category: 'IA' },
+  { id: 'ai_2', name: 'Google Gemini', url: 'https://gemini.google.com', category: 'IA' },
+  { id: 'ai_3', name: 'Claude', url: 'https://claude.ai', category: 'IA' },
+  { id: 'ai_4', name: 'Perplexity', url: 'https://www.perplexity.ai', category: 'IA' },
+  { id: 'ai_5', name: 'Grok', url: 'https://grok.com', category: 'IA' },
+  { id: 'ai_6', name: 'Mistral Le Chat', url: 'https://chat.mistral.ai', category: 'IA' },
+  { id: 'ai_7', name: 'Meta AI', url: 'https://www.meta.ai', category: 'IA' },
+  { id: 'ai_8', name: 'Pi AI', url: 'https://pi.ai', category: 'IA' },
+  { id: 'ai_9', name: 'Poe', url: 'https://poe.com', category: 'IA' },
+  { id: 'ai_10', name: 'You.com', url: 'https://you.com', category: 'IA' },
+];
+
+export const AI_CHINA_ITEMS: LinkItem[] = [
+  { id: 'ai_cn_1', name: 'DeepSeek', url: 'https://chat.deepseek.com', category: 'IA' },
+  { id: 'ai_cn_2', name: 'Kimi', url: 'https://kimi.moonshot.cn', category: 'IA' },
+  { id: 'ai_cn_3', name: 'Qwen Chat', url: 'https://chat.qwen.ai', category: 'IA' },
+  { id: 'ai_cn_4', name: 'Doubao', url: 'https://www.doubao.com', category: 'IA' },
+  { id: 'ai_cn_5', name: 'Yuanbao', url: 'https://yuanbao.tencent.com', category: 'IA' },
+  { id: 'ai_cn_6', name: 'ERNIE Bot (Yiyan)', url: 'https://yiyan.baidu.com', category: 'IA' },
+  { id: 'ai_cn_7', name: 'Hunyuan', url: 'https://hunyuan.tencent.com', category: 'IA' },
+  { id: 'ai_cn_8', name: 'Zhipu Qingyan', url: 'https://chatglm.cn', category: 'IA' },
+  { id: 'ai_cn_9', name: 'MiniMax', url: 'https://www.minimax.io', category: 'IA' },
+  { id: 'ai_cn_10', name: 'Manus', url: 'https://manus.im', category: 'IA' },
+];
+
+export const PRODUCTIVITY_ITEMS: LinkItem[] = [
+  { id: 'prod_1', name: 'Notion', url: 'https://www.notion.so', category: 'Produtividade' },
+  { id: 'prod_2', name: 'Trello', url: 'https://trello.com', category: 'Produtividade' },
+  { id: 'prod_3', name: 'Asana', url: 'https://asana.com', category: 'Produtividade' },
+  { id: 'prod_4', name: 'ClickUp', url: 'https://clickup.com', category: 'Produtividade' },
+  { id: 'prod_5', name: 'Monday.com', url: 'https://monday.com', category: 'Produtividade' },
+  { id: 'prod_6', name: 'Slack', url: 'https://slack.com', category: 'Produtividade' },
+  { id: 'prod_7', name: 'Microsoft Teams', url: 'https://www.microsoft.com/microsoft-teams', category: 'Produtividade' },
+  { id: 'prod_8', name: 'Google Workspace', url: 'https://workspace.google.com', category: 'Produtividade' },
+  { id: 'prod_9', name: 'Canva', url: 'https://www.canva.com', category: 'Produtividade' },
+  { id: 'prod_10', name: 'Figma', url: 'https://www.figma.com', category: 'Produtividade' },
+  { id: 'prod_11', name: 'Miro', url: 'https://miro.com', category: 'Produtividade' },
+  { id: 'prod_12', name: 'WeTransfer', url: 'https://wetransfer.com', category: 'Produtividade' },
+  { id: 'prod_13', name: 'Zoom', url: 'https://zoom.us', category: 'Produtividade' },
+  { id: 'prod_14', name: 'Calendly', url: 'https://calendly.com', category: 'Produtividade' },
+];
+
+export const DEV_CORE_ITEMS: LinkItem[] = [
+  { id: 'dev_1', name: 'GitHub', url: 'https://github.com', category: 'Dev' },
+  { id: 'dev_2', name: 'Stack Overflow', url: 'https://stackoverflow.com', category: 'Dev' },
+  { id: 'dev_3', name: 'MDN Web Docs', url: 'https://developer.mozilla.org', category: 'Dev' },
+  { id: 'dev_4', name: 'JavaScript Info', url: 'https://javascript.info', category: 'Dev' },
+  { id: 'dev_5', name: 'TypeScript Docs', url: 'https://www.typescriptlang.org/docs/', category: 'Dev' },
+  { id: 'dev_6', name: 'React Docs', url: 'https://react.dev', category: 'Dev' },
+  { id: 'dev_7', name: 'Node.js Docs', url: 'https://nodejs.org/en/docs', category: 'Dev' },
+  { id: 'dev_8', name: 'Python.org', url: 'https://www.python.org', category: 'Dev' },
+  { id: 'dev_9', name: 'Python Docs', url: 'https://docs.python.org/3/', category: 'Dev' },
+  { id: 'dev_10', name: 'PyPI', url: 'https://pypi.org', category: 'Dev' },
+  { id: 'dev_11', name: 'SQLBolt', url: 'https://sqlbolt.com', category: 'Dev' },
+  { id: 'dev_12', name: 'SQLZoo', url: 'https://sqlzoo.net', category: 'Dev' },
+  { id: 'dev_13', name: 'PostgreSQL Docs', url: 'https://www.postgresql.org/docs/', category: 'Dev' },
+  { id: 'dev_14', name: 'MySQL Docs', url: 'https://dev.mysql.com/doc/', category: 'Dev' },
+  { id: 'dev_15', name: 'Vercel', url: 'https://vercel.com', category: 'Dev' },
+  { id: 'dev_16', name: 'Netlify', url: 'https://www.netlify.com', category: 'Dev' },
+];
+
+export const DEV_README_ITEMS: LinkItem[] = [
+  { id: 'dev_rd_1', name: 'readme.so', url: 'https://readme.so', category: 'Dev' },
+  { id: 'dev_rd_2', name: 'Make a README', url: 'https://www.makeareadme.com', category: 'Dev' },
+  { id: 'dev_rd_3', name: 'Shields.io', url: 'https://shields.io', category: 'Dev' },
+  { id: 'dev_rd_4', name: 'Carbon', url: 'https://carbon.now.sh', category: 'Dev' },
+  { id: 'dev_rd_5', name: 'GitHub Gist', url: 'https://gist.github.com', category: 'Dev' },
+  { id: 'dev_rd_6', name: 'Mermaid Live', url: 'https://mermaid.live', category: 'Dev' },
+];
+
 export const HOME_ITEMS: LinkItem[] = [
-  // IA & Produtividade
-  { id: '1', name: 'ChatGPT', url: 'https://chat.openai.com', category: 'IA & Produtividade' },
-  { id: '2', name: 'Google Gemini', url: 'https://gemini.google.com', category: 'IA & Produtividade' },
-  { id: '3', name: 'Claude', url: 'https://claude.ai', category: 'IA & Produtividade' },
-  { id: '4', name: 'Canva', url: 'https://www.canva.com', category: 'IA & Produtividade' },
-  { id: '5', name: 'Notion', url: 'https://www.notion.so', category: 'IA & Produtividade' },
-  { id: '6', name: 'Trello', url: 'https://trello.com', category: 'IA & Produtividade' },
-  { id: '7', name: 'GitHub', url: 'https://github.com', category: 'IA & Produtividade' },
-  { id: '8', name: 'Figma', url: 'https://www.figma.com', category: 'IA & Produtividade' },
-  { id: '9', name: 'WeTransfer', url: 'https://wetransfer.com', category: 'IA & Produtividade' },
-  { id: '10', name: 'Zoom', url: 'https://zoom.us', category: 'IA & Produtividade' },
+  // IA, Produtividade e Dev
+  { id: '1', name: 'ChatGPT', url: 'https://chat.openai.com', category: 'IA' },
+  { id: '2', name: 'Google Gemini', url: 'https://gemini.google.com', category: 'IA' },
+  { id: '3', name: 'Claude', url: 'https://claude.ai', category: 'IA' },
+  { id: '4', name: 'Canva', url: 'https://www.canva.com', category: 'Produtividade' },
+  { id: '5', name: 'Notion', url: 'https://www.notion.so', category: 'Produtividade' },
+  { id: '6', name: 'Trello', url: 'https://trello.com', category: 'Produtividade' },
+  { id: '7', name: 'GitHub', url: 'https://github.com', category: 'Dev' },
+  { id: '8', name: 'Figma', url: 'https://www.figma.com', category: 'Produtividade' },
+  { id: '9', name: 'WeTransfer', url: 'https://wetransfer.com', category: 'Produtividade' },
+  { id: '10', name: 'Zoom', url: 'https://zoom.us', category: 'Produtividade' },
 
   // Redes Sociais
   { id: '11', name: 'WhatsApp Web', url: 'https://web.whatsapp.com', category: 'Redes Sociais' },
@@ -261,8 +332,8 @@ export const HOME_ITEMS: LinkItem[] = [
   { id: '94', name: 'Zoom Preços', url: 'https://www.zoom.com.br', category: 'Shopping & Varejo' },
   { id: '95', name: 'Decolar', url: 'https://www.decolar.com', category: 'Governo & Serviços' },
   { id: '96', name: '99 App', url: 'https://99app.com', category: 'Governo & Serviços' },
-  { id: '97', name: 'Wix', url: 'https://pt.wix.com', category: 'IA & Produtividade' },
-  { id: '98', name: 'WordPress', url: 'https://br.wordpress.com', category: 'IA & Produtividade' },
-  { id: '99', name: 'HostGator', url: 'https://www.hostgator.com.br', category: 'IA & Produtividade' },
-  { id: '100', name: 'GoDaddy', url: 'https://www.godaddy.com/pt-br', category: 'IA & Produtividade' },
+  { id: '97', name: 'Wix', url: 'https://pt.wix.com', category: 'Produtividade' },
+  { id: '98', name: 'WordPress', url: 'https://br.wordpress.com', category: 'Produtividade' },
+  { id: '99', name: 'HostGator', url: 'https://www.hostgator.com.br', category: 'Produtividade' },
+  { id: '100', name: 'GoDaddy', url: 'https://www.godaddy.com/pt-br', category: 'Produtividade' },
 ];
