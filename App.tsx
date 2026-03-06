@@ -232,6 +232,13 @@ function App() {
     </div>
   );
 
+  const homeHighlights: { id: string; page: Page; title: string; description: string; badge: string }[] = [
+    { id: 'h_1', page: 'ai', title: 'IAs em alta', description: '20 IAs famosas + bloco de IAs chinesas', badge: 'Atualizado 2026' },
+    { id: 'h_2', page: 'dev', title: 'Hub Dev completo', description: 'Python, SQL, JS, React e ferramentas de README', badge: 'Novo' },
+    { id: 'h_3', page: 'football', title: 'Futebol 2026', description: 'Listas ajustadas para grupos e temporadas atuais', badge: 'Revisado' },
+    { id: 'h_4', page: 'productivity', title: 'Produtividade', description: 'Ferramentas para rotina, time e colaboração', badge: 'Curadoria' },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col font-sans selection:bg-brand-light selection:text-brand-dark transition-colors duration-300">
       
@@ -354,6 +361,35 @@ function App() {
         {/* --- HOME PAGE VIEW --- */}
         {currentPage === 'home' && (
           <div className="w-full">
+            {/* Highlights / Novidades */}
+            <div className="mb-10 animate-fade-in-up" style={{ animationDelay: '0.12s' }}>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                <h2 className="text-xl font-black text-slate-700 dark:text-slate-200 uppercase tracking-widest">Novidades 2026</h2>
+                <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+                {homeHighlights.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      setCurrentPage(item.page);
+                      setSearchQuery('');
+                      setSelectedCategory(null);
+                      window.scrollTo(0, 0);
+                    }}
+                    className="text-left p-4 rounded-xl border border-slate-200 dark:border-dark-border bg-white dark:bg-dark-card hover:border-brand-light dark:hover:border-brand-light hover:shadow-md transition-all"
+                  >
+                    <span className="inline-block text-[0.65rem] font-bold uppercase tracking-wider text-brand-dark dark:text-brand-light bg-brand/10 px-2 py-1 rounded-full mb-3">
+                      {item.badge}
+                    </span>
+                    <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-1">{item.title}</h3>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">{item.description}</p>
+                  </button>
+                ))}
+              </div>
+            </div>
+
             {/* Category Filter Chips */}
             <div className="flex flex-wrap justify-center gap-2 mb-10 max-w-5xl mx-auto px-2 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
               <button
