@@ -282,9 +282,15 @@ function App() {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-medium px-2.5 py-1.5 rounded-full border border-slate-200 dark:border-dark-border text-slate-600 dark:text-slate-300 hover:border-brand-light dark:hover:border-brand-light hover:text-brand transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1.5 rounded-full border border-slate-200 dark:border-dark-border text-slate-600 dark:text-slate-300 hover:border-brand-light dark:hover:border-brand-light hover:text-brand transition-colors"
                 title={`Ir para ${item.name}`}
               >
+                <img
+                  src={`https://www.google.com/s2/favicons?domain=${item.url}&sz=64`}
+                  alt=""
+                  className="w-4 h-4 rounded-sm"
+                  loading="lazy"
+                />
                 {item.name}
               </a>
             ))}
