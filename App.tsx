@@ -270,6 +270,30 @@ function App() {
     </div>
   );
 
+  const RenderStateBlocks = ({ entries }: { entries: [string, any[]][] }) => (
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+      {entries.map(([state, items], index) => (
+        <div key={state} className="animate-fade-in-up p-4 rounded-xl border border-slate-200 dark:border-dark-border bg-white dark:bg-dark-card" style={{ animationDelay: `${index * 20}ms` }}>
+          <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-3">{state}</h3>
+          <div className="flex flex-wrap gap-2">
+            {items.map((item) => (
+              <a
+                key={item.id}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-medium px-2.5 py-1.5 rounded-full border border-slate-200 dark:border-dark-border text-slate-600 dark:text-slate-300 hover:border-brand-light dark:hover:border-brand-light hover:text-brand transition-colors"
+                title={`Ir para ${item.name}`}
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+
   const homeHighlights: { id: string; page: Page; title: string; description: string; badge: string }[] = [
     { id: 'h_1', page: 'ai', title: 'IAs em alta', description: '20 IAs famosas + bloco de IAs chinesas', badge: 'Atualizado 2026' },
     { id: 'h_2', page: 'dev', title: 'Hub Dev completo', description: 'Python, SQL, JS, React e ferramentas de README', badge: 'Novo' },
@@ -731,21 +755,19 @@ function App() {
             ) : (
               // Sectioned view for newspapers
               <div className="space-y-12">
-                {Object.entries(NEWSPAPERS_BY_STATE).map(([state, items], index) => (
-                  <div key={state} className="animate-fade-in-up" style={{ animationDelay: `${index * 45}ms` }}>
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
-                      <h2 className="text-xl font-bold text-slate-700 dark:text-slate-300 uppercase tracking-widest">{state}</h2>
-                      <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
-                    </div>
-                    <RenderGrid items={items} />
-                  </div>
-                ))}
-
-                <div className="animate-fade-in-up" style={{ animationDelay: '1300ms' }}>
+                <div className="animate-fade-in-up" style={{ animationDelay: '0ms' }}>
                   <div className="flex items-center gap-3 mb-6">
                     <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
-                    <h2 className="text-xl font-bold text-slate-700 dark:text-slate-300 uppercase tracking-widest">Mundo</h2>
+                    <h2 className="text-xl font-black text-slate-700 dark:text-slate-300 uppercase tracking-widest">Brasil</h2>
+                    <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                  </div>
+                  <RenderStateBlocks entries={Object.entries(NEWSPAPERS_BY_STATE)} />
+                </div>
+
+                <div className="animate-fade-in-up" style={{ animationDelay: '120ms' }}>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                    <h2 className="text-xl font-black text-slate-700 dark:text-slate-300 uppercase tracking-widest">Mundo</h2>
                     <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
                   </div>
                   <RenderGrid items={NEWSPAPERS_WORLD} />
