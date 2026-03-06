@@ -38,25 +38,25 @@ const PageBanner = ({ page }: { page: Page }) => {
     ai: {
       title: 'Inteligência Artificial',
       subtitle: 'LLMs globais, IAs chinesas e novidades de 2026',
-      gradient: 'from-fuchsia-700 to-pink-500',
+      gradient: 'from-sky-800 to-cyan-500',
       icon: <Brain size={48} className="text-white/80" />
     },
     productivity: {
       title: 'Produtividade',
       subtitle: 'Ferramentas para organizar trabalho, criação e rotina',
-      gradient: 'from-amber-700 to-orange-500',
+      gradient: 'from-teal-800 to-emerald-500',
       icon: <Briefcase size={48} className="text-white/80" />
     },
     dev: {
       title: 'Hub Dev',
       subtitle: 'Python, SQL, JavaScript, React e utilitários para README',
-      gradient: 'from-cyan-800 to-blue-600',
+      gradient: 'from-slate-800 to-cyan-600',
       icon: <Code size={48} className="text-white/80" />
     },
     games: {
       title: 'Arena Gamer',
       subtitle: 'Os melhores jogos e plataformas de streaming',
-      gradient: 'from-purple-800 to-indigo-600',
+      gradient: 'from-indigo-800 to-sky-600',
       icon: <Gamepad2 size={48} className="text-white/80" />
     },
     indicators: {
@@ -68,7 +68,7 @@ const PageBanner = ({ page }: { page: Page }) => {
     football: {
       title: 'Planeta Futebol',
       subtitle: 'Brasileirão, Champions League e Seleções',
-      gradient: 'from-green-800 to-emerald-500',
+      gradient: 'from-emerald-800 to-teal-500',
       icon: <Trophy size={48} className="text-white/80" />
     },
     communication: {
@@ -238,6 +238,12 @@ function App() {
     { id: 'h_3', page: 'football', title: 'Futebol 2026', description: 'Listas ajustadas para grupos e temporadas atuais', badge: 'Revisado' },
     { id: 'h_4', page: 'productivity', title: 'Produtividade', description: 'Ferramentas para rotina, time e colaboração', badge: 'Curadoria' },
   ];
+  const homeUpdates: { id: string; date: string; title: string; detail: string }[] = [
+    { id: 'u_1', date: '06/03/2026', title: 'Página de IA expandida', detail: 'Adicionadas 20 IAs famosas e seção dedicada de IAs chinesas.' },
+    { id: 'u_2', date: '06/03/2026', title: 'Página Dev reforçada', detail: 'Incluídas 20 referências de linguagens, libs e docs (ex.: pandas, React, SQL).' },
+    { id: 'u_3', date: '06/03/2026', title: 'Hub Dev reorganizado', detail: 'Separação visual por Python Data, Web, Banco de Dados e Backend.' },
+    { id: 'u_4', date: '06/03/2026', title: 'Futebol atualizado', detail: 'Listas revisadas para grupos e times alinhados ao cenário 2026.' },
+  ];
 
   return (
     <div className="min-h-screen flex flex-col font-sans selection:bg-brand-light selection:text-brand-dark transition-colors duration-300">
@@ -386,6 +392,23 @@ function App() {
                     <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-1">{item.title}</h3>
                     <p className="text-sm text-slate-500 dark:text-slate-400">{item.description}</p>
                   </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="mb-10 animate-fade-in-up" style={{ animationDelay: '0.16s' }}>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                <h2 className="text-xl font-black text-slate-700 dark:text-slate-200 uppercase tracking-widest">Últimas atualizações</h2>
+                <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {homeUpdates.map((item) => (
+                  <div key={item.id} className="p-4 rounded-xl border border-slate-200 dark:border-dark-border bg-white dark:bg-dark-card">
+                    <p className="text-xs font-bold uppercase tracking-wider text-brand mb-2">{item.date}</p>
+                    <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-1">{item.title}</h3>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">{item.detail}</p>
+                  </div>
                 ))}
               </div>
             </div>
