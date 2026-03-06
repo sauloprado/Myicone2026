@@ -25,29 +25,37 @@ import ResponsibilityFooter from './components/ResponsibilityFooter';
 type Page = 'home' | 'ai' | 'productivity' | 'dev' | 'games' | 'indicators' | 'football' | 'communication' | 'about';
 
 const FamilyBannerVisual = () => (
-  <div className="hidden lg:block relative w-[360px] h-[132px]">
-    <div className="absolute inset-0 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-sm"></div>
+  <div className="hidden lg:block relative w-[390px] h-[150px]">
+    <div className="absolute inset-0 rounded-3xl border border-white/25 bg-gradient-to-br from-white/25 via-white/10 to-white/5 backdrop-blur-xl shadow-2xl"></div>
+    <div className="absolute -top-5 -right-5 w-28 h-28 rounded-full bg-cyan-300/20 blur-2xl"></div>
+    <div className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-teal-200/20 blur-2xl"></div>
 
-    <div className="absolute left-3 top-9 w-12 h-12 rounded-full bg-white/20 border border-white/30 flex items-center justify-center">
-      <UserRound size={22} className="text-white" />
+    <div className="absolute left-5 top-6 w-14 h-14 rounded-full bg-white/20 border border-white/35 shadow-md flex items-center justify-center">
+      <UserRound size={24} className="text-white" />
     </div>
-    <div className="absolute right-3 top-9 w-12 h-12 rounded-full bg-white/20 border border-white/30 flex items-center justify-center">
-      <UserRound size={22} className="text-white" />
+    <div className="absolute right-5 top-6 w-14 h-14 rounded-full bg-white/20 border border-white/35 shadow-md flex items-center justify-center">
+      <UserRound size={24} className="text-white" />
     </div>
-    <div className="absolute left-[154px] -top-2 w-12 h-12 rounded-full bg-white/20 border border-white/30 flex items-center justify-center">
-      <UserRound size={22} className="text-white" />
+    <div className="absolute left-[168px] -top-3 w-14 h-14 rounded-full bg-white/20 border border-white/35 shadow-md flex items-center justify-center">
+      <UserRound size={24} className="text-white" />
     </div>
 
-    <div className="absolute left-[98px] top-5 px-4 py-3 rounded-xl bg-white/15 border border-white/30 shadow-lg min-w-[164px]">
+    <div className="absolute left-[108px] top-8 px-4 py-3 rounded-xl bg-slate-900/20 border border-white/30 shadow-xl min-w-[172px]">
       <div className="flex items-center gap-2 mb-1">
-        <Laptop size={16} className="text-white" />
-        <span className="text-sm font-bold text-white">Myicone</span>
+        <Laptop size={15} className="text-white" />
+        <span className="text-sm font-bold text-white tracking-wide">Myicone Family</span>
       </div>
-      <p className="text-[0.68rem] text-white/90 leading-tight">Atalhos para toda a família.</p>
+      <p className="text-[0.68rem] text-white/90 leading-tight">Internet útil para casa, trabalho e estudos.</p>
     </div>
 
-    <div className="absolute left-[138px] bottom-2 px-2 py-1 rounded-lg bg-white/20 border border-white/30">
+    <div className="absolute left-[154px] bottom-3 px-2 py-1 rounded-lg bg-white/20 border border-white/30 shadow">
       <Smartphone size={14} className="text-white" />
+    </div>
+    <div className="absolute left-[120px] bottom-4 w-7 h-1 rounded-full bg-white/60"></div>
+    <div className="absolute right-[120px] bottom-4 w-7 h-1 rounded-full bg-white/60"></div>
+
+    <div className="absolute right-8 bottom-5 text-[0.62rem] uppercase tracking-[0.22em] text-white/80 font-semibold">
+      Premium Experience
     </div>
   </div>
 );
