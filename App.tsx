@@ -22,7 +22,7 @@ import {
 import IconCard from './components/IconCard';
 import ResponsibilityFooter from './components/ResponsibilityFooter';
 
-type Page = 'home' | 'ai' | 'productivity' | 'dev' | 'games' | 'indicators' | 'football' | 'communication' | 'about';
+type Page = 'home' | 'news' | 'ai' | 'productivity' | 'dev' | 'games' | 'indicators' | 'football' | 'communication' | 'about';
 
 const FamilyBannerVisual = () => (
   <div className="hidden lg:block relative w-[390px] h-[150px]">
@@ -71,6 +71,12 @@ const PageBanner = ({ page }: { page: Page }) => {
       gradient: 'from-brand-dark to-brand-light',
       icon: <Globe size={48} className="text-white/80" />,
       visual: <FamilyBannerVisual />
+    },
+    news: {
+      title: 'Novidades',
+      subtitle: 'Tudo o que foi atualizado no Myícone em 2026',
+      gradient: 'from-slate-800 to-brand',
+      icon: <Info size={48} className="text-white/80" />
     },
     ai: {
       title: 'Inteligência Artificial',
@@ -142,13 +148,6 @@ function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-
-  // Initialize theme
-  useEffect(() => {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
-    }
-  }, []);
 
   // Apply theme to html
   useEffect(() => {
@@ -365,13 +364,14 @@ function App() {
         {/* Banner Component (Desktop/Tablet) */}
         <PageBanner page={currentPage} />
 
-        {/* Global Search Bar (Visible on all pages except About) */}
-        {currentPage !== 'about' && (
+        {/* Global Search Bar (Visible on all pages except About/News) */}
+        {currentPage !== 'about' && currentPage !== 'news' && (
           <>
              {/* Mobile Title (Since banner is hidden on mobile) */}
              <div className="md:hidden text-center mb-6 animate-fade-in-up">
               <h1 className="text-3xl font-black text-slate-800 dark:text-slate-100 mb-2 tracking-tight">
                 {currentPage === 'home' && <>Bem vindo ao <span className="text-brand">Myícone</span></>}
+                {currentPage === 'news' && <>Confira as <span className="text-brand">Novidades</span></>}
                 {currentPage === 'ai' && <>Painel de <span className="text-brand">IA</span></>}
                 {currentPage === 'productivity' && <>Modo <span className="text-brand">Produtividade</span></>}
                 {currentPage === 'dev' && <>Atalhos para <span className="text-brand">Devs</span></>}
@@ -402,58 +402,28 @@ function App() {
                 </button>
               )}
             </div>
+
+            {currentPage === 'home' && (
+              <div className="w-full max-w-2xl -mt-4 mb-8 text-center animate-fade-in-up" style={{ animationDelay: '0.12s' }}>
+                <button
+                  onClick={() => {
+                    setCurrentPage('news');
+                    setSearchQuery('');
+                    setSelectedCategory(null);
+                    window.scrollTo(0, 0);
+                  }}
+                  className="text-sm sm:text-base text-slate-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light transition-colors border-b border-slate-300/80 dark:border-slate-600 pb-1"
+                >
+                  Confira as novidades
+                </button>
+              </div>
+            )}
           </>
         )}
 
         {/* --- HOME PAGE VIEW --- */}
         {currentPage === 'home' && (
           <div className="w-full">
-            {/* Highlights / Novidades */}
-            <div className="mb-10 animate-fade-in-up" style={{ animationDelay: '0.12s' }}>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
-                <h2 className="text-xl font-black text-slate-700 dark:text-slate-200 uppercase tracking-widest">Novidades 2026</h2>
-                <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
-                {homeHighlights.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => {
-                      setCurrentPage(item.page);
-                      setSearchQuery('');
-                      setSelectedCategory(null);
-                      window.scrollTo(0, 0);
-                    }}
-                    className="text-left p-4 rounded-xl border border-slate-200 dark:border-dark-border bg-white dark:bg-dark-card hover:border-brand-light dark:hover:border-brand-light hover:shadow-md transition-all"
-                  >
-                    <span className="inline-block text-[0.65rem] font-bold uppercase tracking-wider text-brand-dark dark:text-brand-light bg-brand/10 px-2 py-1 rounded-full mb-3">
-                      {item.badge}
-                    </span>
-                    <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-1">{item.title}</h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">{item.description}</p>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="mb-10 animate-fade-in-up" style={{ animationDelay: '0.16s' }}>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
-                <h2 className="text-xl font-black text-slate-700 dark:text-slate-200 uppercase tracking-widest">Últimas atualizações</h2>
-                <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {homeUpdates.map((item) => (
-                  <div key={item.id} className="p-4 rounded-xl border border-slate-200 dark:border-dark-border bg-white dark:bg-dark-card">
-                    <p className="text-xs font-bold uppercase tracking-wider text-brand mb-2">{item.date}</p>
-                    <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-1">{item.title}</h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">{item.detail}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
             {/* Category Filter Chips */}
             <div className="flex flex-wrap justify-center gap-2 mb-10 max-w-5xl mx-auto px-2 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
               <button
@@ -516,6 +486,56 @@ function App() {
                 })}
               </div>
             )}
+          </div>
+        )}
+
+        {/* --- NEWS PAGE VIEW --- */}
+        {currentPage === 'news' && (
+          <div className="w-full space-y-12">
+            <div className="animate-fade-in-up" style={{ animationDelay: '0ms' }}>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                <h2 className="text-xl font-black text-slate-700 dark:text-slate-200 uppercase tracking-widest">Novidades 2026</h2>
+                <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+                {homeHighlights.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      setCurrentPage(item.page);
+                      setSearchQuery('');
+                      setSelectedCategory(null);
+                      window.scrollTo(0, 0);
+                    }}
+                    className="text-left p-4 rounded-xl border border-slate-200 dark:border-dark-border bg-white dark:bg-dark-card hover:border-brand-light dark:hover:border-brand-light hover:shadow-md transition-all"
+                  >
+                    <span className="inline-block text-[0.65rem] font-bold uppercase tracking-wider text-brand-dark dark:text-brand-light bg-brand/10 px-2 py-1 rounded-full mb-3">
+                      {item.badge}
+                    </span>
+                    <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-1">{item.title}</h3>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">{item.description}</p>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+                <h2 className="text-xl font-black text-slate-700 dark:text-slate-200 uppercase tracking-widest">Últimas atualizações</h2>
+                <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {homeUpdates.map((item) => (
+                  <div key={item.id} className="p-4 rounded-xl border border-slate-200 dark:border-dark-border bg-white dark:bg-dark-card">
+                    <p className="text-xs font-bold uppercase tracking-wider text-brand mb-2">{item.date}</p>
+                    <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-1">{item.title}</h3>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">{item.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         )}
 
