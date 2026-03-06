@@ -417,7 +417,7 @@ function App() {
                 <div className="animate-fade-in-up" style={{ animationDelay: '0ms' }}>
                   <div className="flex items-center gap-3 mb-6">
                     <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
-                    <h2 className="text-xl font-bold text-fuchsia-700 dark:text-fuchsia-300 uppercase tracking-widest">LLMs Globais</h2>
+                    <h2 className="text-xl font-bold text-fuchsia-700 dark:text-fuchsia-300 uppercase tracking-widest">IAs Mais Famosas (20)</h2>
                     <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
                   </div>
                   <RenderGrid items={AI_LLM_ITEMS} />
@@ -461,7 +461,7 @@ function App() {
                 <div className="animate-fade-in-up" style={{ animationDelay: '0ms' }}>
                   <div className="flex items-center gap-3 mb-6">
                     <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
-                    <h2 className="text-xl font-bold text-cyan-700 dark:text-cyan-300 uppercase tracking-widest">Stack Essencial Dev</h2>
+                    <h2 className="text-xl font-bold text-cyan-700 dark:text-cyan-300 uppercase tracking-widest">Linguagens e Bibliotecas (20)</h2>
                     <div className="h-px flex-1 bg-slate-200 dark:bg-dark-border"></div>
                   </div>
                   <RenderGrid items={DEV_CORE_ITEMS} />
