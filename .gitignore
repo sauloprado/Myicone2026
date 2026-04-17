@@ -25,3 +25,6 @@ dist-ssr
 *.sw?
 *.zip
 
+
+# Comparison folder
+_repo_compare_myicone_2026/

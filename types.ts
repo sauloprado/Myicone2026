@@ -17,13 +17,16 @@ export type Category =
   | 'Futebol'
   | 'Comunicação';
 
+export type DevSubcategory = 'python-data' | 'web-frontend' | 'database' | 'backend' | 'readme';
+
 export interface LinkItem {
   id: string;
   name: string;
   url: string;
   category: Category;
-  description?: string; // Short description for search or display
+  description?: string;
   isHistorical?: boolean;
+  devSubcategory?: DevSubcategory;
 }
 
 export interface SocialResponsibilityItem {
