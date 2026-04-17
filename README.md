@@ -88,6 +88,18 @@ O build final é gerado na pasta `dist/`.
 
 Publique a pasta `dist/`.
 
+### GitHub Pages
+
+O repositório já pode ser configurado para deploy automático via GitHub Actions.
+
+Depois de publicar a `main`, o site deve ficar disponível em:
+
+```text
+https://sauloprado.github.io/myicone_2026/
+```
+
+No GitHub, confirme que a opção de Pages está usando `GitHub Actions` como fonte de deploy.
+
 ### Hospedagem tradicional
 
 Envie o conteúdo de `dist/` para a pasta pública do servidor, como `public_html`, `www` ou `htdocs`.
