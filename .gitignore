@@ -24,6 +24,7 @@ dist-ssr
 *.sln
 *.sw?
 *.zip
+*.code-workspace
 
 
 # Comparison folder
