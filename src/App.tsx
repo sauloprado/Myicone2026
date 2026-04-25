@@ -32,8 +32,8 @@ interface PageBannerConfig {
 const FamilyBannerVisual = () => (
   <div className="hidden lg:block relative w-[390px] h-[150px]">
     <div className="absolute inset-0 rounded-3xl border border-white/25 bg-gradient-to-br from-white/25 via-white/10 to-white/5 backdrop-blur-xl shadow-2xl"></div>
-    <div className="absolute -top-5 -right-5 w-28 h-28 rounded-full bg-cyan-300/20 blur-2xl"></div>
-    <div className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-teal-200/20 blur-2xl"></div>
+    <div className="absolute -top-5 -right-5 w-28 h-28 rounded-full bg-purple-300/20 blur-2xl"></div>
+    <div className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-blue-200/20 blur-2xl"></div>
 
     <div className="absolute left-5 top-6 w-14 h-14 rounded-full bg-white/20 border border-white/35 shadow-md flex items-center justify-center">
       <UserRound size={24} className="text-white" />
@@ -86,7 +86,7 @@ const PageBanner = ({ page }: { page: Page }) => {
     ai: {
       title: 'Inteligência Artificial',
       subtitle: 'LLMs globais, IAs chinesas e novidades de 2026',
-      gradient: 'from-sky-800 to-cyan-500',
+      gradient: 'from-violet-900 to-purple-500',
       icon: <Brain size={48} className="text-white/80" />
     },
     productivity: {
@@ -98,19 +98,19 @@ const PageBanner = ({ page }: { page: Page }) => {
     dev: {
       title: 'Hub Dev',
       subtitle: 'Python, SQL, JavaScript, React e utilitários para README',
-      gradient: 'from-slate-800 to-cyan-600',
+      gradient: 'from-slate-800 to-blue-600',
       icon: <Code size={48} className="text-white/80" />
     },
     games: {
       title: 'Arena Gamer',
       subtitle: 'Os melhores jogos e plataformas de streaming',
-      gradient: 'from-indigo-800 to-sky-600',
+      gradient: 'from-indigo-900 to-violet-500',
       icon: <Gamepad2 size={48} className="text-white/80" />
     },
     indicators: {
       title: 'Indicadores Globais',
       subtitle: 'Finanças, estatísticas e ferramentas em tempo real',
-      gradient: 'from-brand-dark to-teal-500',
+      gradient: 'from-brand-dark to-cyan-400',
       icon: <BarChart3 size={48} className="text-white/80" />
     },
     football: {
