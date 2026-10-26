@@ -1,127 +1,135 @@
-<!-- Criado - Saulo Prado Versão 1.0 Junho de 2016 Versão 2.0 Março de 2026 -->
-# Myícone Moderno
+<p align="center">
+<img src="assets/capa.png" alt="Myícone 2026" width="100%">
+</p>
 
-Releitura moderna e responsiva do clássico portal "Myícone", com foco em atalhos úteis da internet brasileira.
+<h1 align="center">Myícone 2026</h1>
+<p align="center"><i>Releitura moderna e responsiva do clássico portal de atalhos Myícone</i></p>
 
-## Visão geral
+<p align="center">
+<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=white" alt="React">
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript">
+<img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white" alt="Vite">
+<img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS">
+<img src="https://img.shields.io/badge/status-conclu%C3%ADdo-2DD4BF?style=flat-square" alt="status: concluído">
+</p>
 
-O projeto organiza links populares em uma interface visual rápida e adaptada para desktop, tablet e celular. A aplicação foi modernizada com React, TypeScript e Vite, mantendo a proposta original de facilitar o acesso aos principais serviços da web.
+## Sumário
 
-## Tecnologias utilizadas
+- [Sobre](#sobre)
+- [Funcionalidades](#funcionalidades)
+- [Páginas](#páginas)
+- [Tecnologias](#tecnologias)
+- [Como executar](#como-executar)
+- [Deploy](#deploy)
+- [Estrutura do repositório](#estrutura-do-repositório)
+- [Autor](#autor)
 
-- React 19
-- TypeScript
-- Vite 6
-- Lucide React
-- Tailwind CSS com build local via PostCSS
+## Sobre
 
-## Funcionalidades implementadas
+O **Myícone** nasceu em 2016 como um portal de atalhos para os sites mais usados da internet brasileira. A versão **2026** é uma releitura completa com **React**, **TypeScript** e **Vite**, mantendo a proposta original: acesso rápido, visual e organizado aos principais serviços da web, em qualquer tela.
 
-- Layout responsivo para mobile, tablet e desktop
-- Tema claro e escuro com persistência local
-- Busca em tempo real
-- Cards com favicon automático por domínio
-- Navegação por páginas internas
+## Funcionalidades
+
+- Layout responsivo para celular, tablet e desktop
+- Tema claro e escuro com preferência salva no navegador
+- Busca de atalhos em tempo real
+- Cards com favicon automático a partir do domínio
+- Navegação por páginas temáticas e coleções
 - Animações suaves de entrada
-- Organização por categorias e coleções específicas
 
-## Estrutura de páginas
+## Páginas
 
-- `Início`: seleção principal de atalhos da web
-- `IA`: ferramentas de IA globais e IAs chinesas
-- `Produtividade`: plataformas de organização, design e colaboração
-- `Dev`: referências para Python, frontend, banco de dados, backend e README
-- `Jogos`: games, plataformas e streaming
-- `Indicadores`: finanças, clima e serviços úteis
-- `Futebol`: clubes do Brasil, Europa e seleções
-- `Comunicação`: jornais do Brasil por estado e portais internacionais
-- `Sobre`: contexto institucional do projeto
+| Página | Conteúdo |
+| --- | --- |
+| **Início** | Seleção principal de atalhos da web |
+| **IA** | Ferramentas de IA globais e IAs chinesas |
+| **Produtividade** | Organização, design e colaboração |
+| **Dev** | Referências de Python, frontend, banco de dados, backend e README |
+| **Jogos** | Games, plataformas e streaming |
+| **Indicadores** | Finanças, clima e serviços úteis |
+| **Futebol** | Clubes do Brasil, Europa e seleções |
+| **Comunicação** | Jornais do Brasil por estado e portais internacionais |
+| **Sobre** | Contexto do projeto |
 
-## Requisitos
+```mermaid
+flowchart LR
+    A[constants.ts<br/>atalhos e categorias] --> B[App.tsx]
+    B --> C[Busca em tempo real]
+    B --> D[Páginas temáticas]
+    D --> E[IconCard<br/>favicon automático]
+    B --> F[Tema claro / escuro]
+```
 
-- Node.js 20 ou superior
-- npm ou pnpm
+## Tecnologias
 
-## Como rodar localmente
+| Tecnologia | Uso |
+| --- | --- |
+| React 19 | Interface e componentes |
+| TypeScript | Tipagem dos atalhos e componentes |
+| Vite 6 | Ambiente de desenvolvimento e build |
+| Tailwind CSS (PostCSS) | Estilos utilitários e tema |
+| Lucide React | Ícones da interface |
+| GitHub Actions | Deploy automático para o GitHub Pages |
 
-### Com npm
+## Como executar
+
+Requisitos: **Node.js 20+** e npm ou pnpm.
 
 ```bash
 npm install
 npm run dev
 ```
 
-### Com pnpm
+Acesse `http://localhost:3000`.
+
+<details>
+<summary>Usando pnpm</summary>
 
 ```bash
 corepack pnpm install
 corepack pnpm dev
 ```
+</details>
 
-Depois, abra no navegador:
+## Deploy
+
+```bash
+npm run build     # gera a pasta dist/
+npm run preview   # confere o build localmente
+```
+
+| Destino | Como publicar |
+| --- | --- |
+| GitHub Pages | Workflow em `.github/workflows/deploy-pages.yml` (fonte de deploy: **GitHub Actions**). O `base` do Vite é ajustado automaticamente para o nome do repositório. |
+| Vercel / Netlify | Publicar a pasta `dist/` |
+| Hospedagem tradicional | Enviar o conteúdo de `dist/` para `public_html`, `www` ou `htdocs` |
+
+## Estrutura do repositório
 
 ```text
-http://localhost:3000
+Myicone2026/
+├── .github/workflows/deploy-pages.yml
+├── assets/capa.png
+├── src/
+│   ├── components/
+│   │   ├── IconCard.tsx
+│   │   └── ResponsibilityFooter.tsx
+│   ├── App.tsx
+│   ├── constants.ts
+│   ├── types.ts
+│   ├── index.css
+│   └── main.tsx
+├── index.html
+├── package.json
+├── tailwind.config.js
+├── postcss.config.js
+├── tsconfig.json
+└── vite.config.ts
 ```
 
-## Build de produção
+## Autor
 
-### Com npm
+**Saulo Prado** · Analista de Sistemas · Gestão de Ativos de TI, orçamento, automação e dashboards
 
-```bash
-npm run build
-npm run preview
-```
-
-### Com pnpm
-
-```bash
-corepack pnpm build
-corepack pnpm preview
-```
-
-O build final é gerado na pasta `dist/`.
-
-## Publicação
-
-### Vercel ou Netlify
-
-Publique a pasta `dist/`.
-
-### GitHub Pages
-
-O repositório já pode ser configurado para deploy automático via GitHub Actions.
-
-Depois de publicar a `main`, o site deve ficar disponível em:
-
-```text
-https://sauloprado.github.io/myicone_2026/
-```
-
-No GitHub, confirme que a opção de Pages está usando `GitHub Actions` como fonte de deploy.
-
-### Hospedagem tradicional
-
-Envie o conteúdo de `dist/` para a pasta pública do servidor, como `public_html`, `www` ou `htdocs`.
-
-Se a publicação for feita em subpasta, ajuste a opção `base` no `vite.config.ts` antes de gerar o build.
-
-## Git
-
-Inicialização rápida:
-
-```bash
-git init
-git add .
-git commit -m "Initial commit: Myicone Moderno"
-git branch -M main
-git remote add origin https://github.com/sauloprado/Myicone---2026.git
-git push -u origin main
-```
-
-## Observações
-
-- O servidor de desenvolvimento está configurado para usar a porta `3000`
-- O projeto usa Tailwind com `tailwind.config.js`, `postcss.config.js` e `index.css`
-- O favicon dos cards é carregado automaticamente a partir do domínio de cada link
-- O build de produção gera `dist/`, não `build/`
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Saulo%20Prado-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/saulo-prado-ab4a0b96/)
+[![GitHub](https://img.shields.io/badge/GitHub-sauloprado-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/sauloprado)
